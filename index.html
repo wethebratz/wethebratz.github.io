@@ -1,92 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ Khaled Wisdom Quotes</title>
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        html {
-            background: url(https://i.ytimg.com/vi/l4_WKpGKw_E/hqdefault.jpg) center center fixed;
-            font-family: 'Exo', sans-serif;
-        }
-        .centered {
-            position: center;
-            top: 25%;
-            left: 25%;
-            right: 25%;
-            bottom: 25%;
-        }
-        .quoteBox {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-        }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Area</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    /* NES-style colors and backgrounds */
+    body {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #212529; /* Dark gray background */
+        color: #FFF;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #passwordSection, #contentSection {
+        background-color: #333; /* Lighter gray background */
+        padding: 20px;
+        border-radius: 10px;
+        border: 5px solid #FFF; /* White border for contrast */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    input, button {
+        font-size: 16px; /* Larger font size for readability */
+        padding: 10px;
+        margin-top: 20px;
+        background: #000; /* Black background for inputs */
+        border: 3px solid #FFF; /* White border */
+        color: #FFF; /* White text */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #555; /* Lighter gray for hover */
+        border-color: #FFC107; /* Gold color on hover */
+    }
+
+    label {
+        color: #FFC107; /* Adding a bit of color */
+    }
+
+    #infoText {
+        color: #FF6347; /* Tomato color for visibility */
+        margin-bottom: 10px;
+    }
+</style>
 </head>
 <body>
-    <div class="container-fluid centered">
-        <div class="quoteBox">
-            <h2 class="quote">100% Wisdom</h2>
-            <h3 class="author text-center">-</h3>
-            <button id="getQuote" class="btn btn-primary btn-block mt-4">Another One</button>
-            <a class="twitter-share-button btn btn-info btn-block mt-2" href="https://twitter.com/intent/tweet" target="_blank">
-                Tweet it!
-            </a>
-            <a id="alert" class="btn btn-default btn-block alert-btn mt-2" href="#" role="button">
-                <i class="fa fa-twitter"></i> MAJOR KEY ALERT
-            </a>
-        </div>
-    </div>
-    <div class="footer">
-      Tell me about your favourite character from a movie, show, or book! I'll be using this information for a project I'll be sharing on Monday.
-    </div>
+<div id="passwordSection">
+    <div id="infoText">#saveoctomanfromsam</div>
+    <label for="passwordInput">Enter Password:</label>
+    <input type="password" id="passwordInput">
+    <button onclick="checkPassword()">Submit</button>
+</div>
+<div id="contentSection" style="display:none;">
+    Joe Fish
+</div>
+<script>
+    function checkPassword() {
+        const passwordInput = document.getElementById('passwordInput').value;
+        const passwordSection = document.getElementById('passwordSection');
+        const contentSection = document.getElementById('contentSection');
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script>
-        var quoteBank = [
-            ['"#bless up"', "DJ Khaled"],
-            ['"Always have Faith. Always have Hope"', "DJ Khaled"],
-            ['"The key is to make it."', "DJ Khaled"],
-            ['"Smh... They get mad when you have joy."', "DJ Khaled"],
-            ['"Key to more success is a clean heart and a clean face."', "DJ Khaled"],
-            ['"We go hard. In everything we do, we’re going to accomplish our victory and our goal. If it takes a day, a year, or 20 years, we’re going to win. I haven’t taken a loss because everything I’ve done has been a working process to win."', "DJ Khaled"],
-            ['"Baby, you smart! You loyal! You a genius!"', "DJ Khaled"],
-            ['"Those that weather the storm are the great ones."', "DJ Khaled"],
-            ['"They’ll try to close the door on you... Just open it."', "DJ Khaled"],
-            ['"My fans expect me to be great and keep being great."', "DJ Khaled"],
-            ['"There will be roadblocks but we will overcome them."', "DJ Khaled"],
-            ['"They don’t want you to jet ski."', "DJ Khaled"],
-            ['"Another one. No, another two."', "DJ Khaled"],
-            ['"I can deal with everything. I got the answer for anything."', "DJ Khaled"],
-            ['"I know that I’ve been put on this Earth to make people happy, to inspire people, and to uplift people. That’s a beautiful thing."', "DJ Khaled"],
-            ['"The key to more success is coco butter."', "DJ Khaled"]
-        ];
-
-        $(document).ready(function() {
-            $("#getQuote").click(function() {
-                var num = Math.floor(Math.random() * quoteBank.length);
-                var randomQuote = quoteBank[num][0];
-                $(".quote").html(randomQuote);
-                $(".author").html("-" + quoteBank[num][1]);
-                $(".twitter-share-button").attr("href", 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(randomQuote + " - " + quoteBank[num][1]));
-            });
-        });
-    </script>
+        if (passwordInput === 'newmen') {
+            passwordSection.style.display = 'none';
+            contentSection.style.display = 'block';
+            setTimeout(() => {
+                contentSection.style.display = 'none';
+                passwordSection.style.display = 'flex';
+                document.getElementById('passwordInput').value = ''; // Reset password field
+            }, 20000); // Display for 20 seconds
+        } else {
+            alert('Wrong password! Try again.');
+            document.getElementById('passwordInput').value = ''; // Reset password field
+        }
+    }
+</script>
 </body>
 </html>
+
+
