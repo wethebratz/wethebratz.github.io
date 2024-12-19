@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Rick Roll</title>
+    <title>Auto-Play Rick Roll</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,48 +14,20 @@
             margin: 0;
             background-color: #f0f0f0;
         }
-        .container {
-            text-align: center;
-        }
         #video-container {
-            display: none;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Enter Password</h1>
-        <input type="password" id="password" placeholder="Enter password" onkeyup="checkPassword()">
-        <div id="error-message" style="color: red; margin-top: 10px;"></div>
-    </div>
-
     <div id="video-container">
         <iframe id="rickroll-video" width="560" height="315" 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
                 title="Rick Roll Video" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
                 allowfullscreen>
         </iframe>
     </div>
-
-    <script>
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
-            const videoContainer = document.getElementById('video-container');
-            const video = document.getElementById('rickroll-video');
-
-            if (password === 'byeraman') {
-                errorMessage.textContent = '';
-                videoContainer.style.display = 'block';
-                document.querySelector('.container').style.display = 'none';
-                video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&enablejsapi=1";
-                video.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: '' }), '*');
-            } else {
-                errorMessage.textContent = 'Incorrect password. Try again!';
-            }
-        }
-    </script>
 </body>
 </html>
