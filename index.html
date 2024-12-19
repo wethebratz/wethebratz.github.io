@@ -31,7 +31,7 @@
 
     <div id="video-container">
         <iframe id="rickroll-video" width="560" height="315" 
-                src="" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" 
                 title="Rick Roll Video" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
@@ -50,7 +50,8 @@
                 errorMessage.textContent = '';
                 videoContainer.style.display = 'block';
                 document.querySelector('.container').style.display = 'none';
-                video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+                video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&enablejsapi=1";
+                video.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: '' }), '*');
             } else {
                 errorMessage.textContent = 'Incorrect password. Try again!';
             }
