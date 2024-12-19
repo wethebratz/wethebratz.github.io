@@ -1,94 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>wethebratz</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-    /* NES-style colors and backgrounds */
-    body {
-        font-family: 'Press Start 2P', cursive;
-        background-color: #212529; /* Dark gray background */
-        color: #FFF;
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    #passwordSection, #contentSection {
-        background-color: #333; /* Lighter gray background */
-        padding: 20px;
-        border-radius: 10px;
-        border: 5px solid #FFF; /* White border for contrast */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-
-    input, button {
-        font-size: 16px; /* Larger font size for readability */
-        padding: 10px;
-        margin-top: 20px;
-        background: #000; /* Black background for inputs */
-        border: 3px solid #FFF; /* White border */
-        color: #FFF; /* White text */
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #555; /* Lighter gray for hover */
-        border-color: #FFC107; /* Gold color on hover */
-    }
-
-    label {
-        color: #FFC107; /* Adding a bit of color */
-    }
-
-    #infoText {
-        color: #FF6347; /* Tomato color for visibility */
-        margin-bottom: 30px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Rick Roll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        #video-container {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<div id="passwordSection">
-    <div id="infoText">#SaveOctomanFromSam</div>
-    <div id="infoText"></div>
-    <label for="passwordInput">Enter Password:</label>
-    <input type="password" id="passwordInput">
-    <button onclick="checkPassword()">Submit</button>
-</div>
-<div id="contentSection" style="display:none;">
-    My technology lets your car both take and give,
-   Balancing the grid to help power live.
-   An electric solution that's smart and grand,
-   What innovation do I help you understand?
-</div>
-<script>
-    function checkPassword() {
-        const passwordInput = document.getElementById('passwordInput').value;
-        const passwordSection = document.getElementById('passwordSection');
-        const contentSection = document.getElementById('contentSection');
+    <div class="container">
+        <h1>Enter Password</h1>
+        <input type="password" id="password" placeholder="Enter password" onkeyup="checkPassword()">
+        <div id="error-message" style="color: red; margin-top: 10px;"></div>
+    </div>
 
-        if (passwordInput === 'SnoopDogg') {
-            passwordSection.style.display = 'none';
-            contentSection.style.display = 'block';
-            setTimeout(() => {
-                contentSection.style.display = 'none';
-                passwordSection.style.display = 'flex';
-                document.getElementById('passwordInput').value = ''; // Reset password field
-            }, 20000); // Display for 20 seconds
-        } else {
-            alert('Wrong password! Try again.');
-            document.getElementById('passwordInput').value = ''; // Reset password field
+    <div id="video-container">
+        <iframe id="rickroll-video" width="560" height="315" 
+                src="" 
+                title="Rick Roll Video" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const videoContainer = document.getElementById('video-container');
+            const video = document.getElementById('rickroll-video');
+
+            if (password === 'byeraman') {
+                errorMessage.textContent = '';
+                videoContainer.style.display = 'block';
+                document.querySelector('.container').style.display = 'none';
+                video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+            } else {
+                errorMessage.textContent = 'Incorrect password. Try again!';
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
-
-
